@@ -5,24 +5,11 @@
 </div>
 <hr>
 <div class="row">
-    <div class="col-xs-12">
-        <a 
-        href="#" 
-        class="list-group-item list-group-item-action d-flex w-90 justify-content-between" 
-        *ngFor = "let recipe of recipes">
-            <div >
-                <h4 class="list-group-item-heading">{{recipe.name}}</h4>
-                <p class="list-group-item-text">{{recipe.description}}</p>
-            </div>
-            <span >
-                <img 
-                src="{{recipe.imagePath}}" 
-                alt="{{recipe.name}}" 
-                class="img-fluid" 
-                style="max-height: 50px; " >
-            </span>
-        </a>
-        <app-recipe-item></app-recipe-item>
-
+    <div class="col-xs-12">  
+        <app-recipe-item
+        *ngFor = "let eachRecipe of recipes"
+        [recipe] = "eachRecipe"
+        (selectedRecipe) = "onRecipeSelected(eachRecipe)"
+        ></app-recipe-item>
     </div>
 </div>
